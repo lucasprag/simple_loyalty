@@ -7,6 +7,6 @@ ShopifyApp.configure do |config|
   config.after_authenticate_job = false
   config.session_repository = Shop
   config.webhooks = [
-    { topic: 'orders/paid', address: 'https://2f0a78f7.ngrok.io/webhooks/orders/paid', format: 'json' },
+    { topic: 'orders/paid', address: 'https://simpleloyalty.herokuapp.com/login/webhooks/orders/paid', format: 'json' },
   ]
 end
