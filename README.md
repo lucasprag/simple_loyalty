@@ -1,24 +1,15 @@
-# README
+# Simple Loyalty
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple laylty app for shopify stores
 
-Things you may want to cover:
+## Install
 
-* Ruby version
+- go to [simpleloyalty.herokuapp.com](https://simpleloyalty.herokuapp.com/)
+- fill the field with your shopify store URL
+- You will be redirected to your story
+- click on `Install`
+- Done
 
-* System dependencies
+Now when customers pay orders, they will earn loyalty points to use later. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Thank you.
