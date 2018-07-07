@@ -19,6 +19,6 @@ class CustomerDecorator
   end
 
   def points_balance
-    points.pluck(:points).sum
+    @points_balance ||= points.pluck(:points).sum
   end
 end
