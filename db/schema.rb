@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_07_190156) do
+ActiveRecord::Schema.define(version: 2018_07_07_223049) do
 
   create_table "loyalty_points", force: :cascade do |t|
-    t.integer "shop_id"
-    t.integer "customer_id"
-    t.integer "order_id"
+    t.integer "shop_id", limit: 8
+    t.integer "customer_id", limit: 8
+    t.integer "order_id", limit: 8
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

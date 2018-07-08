@@ -6,19 +6,24 @@
   </script>
 <% end %>
 
-
-<table class="table table-striped">
-  <tr>
-   <th>Name</th>
-   <th>Email</th>
-   <th>Points Balance</th>
-  </tr>
-
-  <% @customers.each do |customer| %>
+<% if @customers.any? %>
+  <table class="table table-striped">
     <tr>
-      <td><%= link_to customer.name, "https://#{@shop_session.url}/admin/customers/#{customer.id}", target: "_top" %></td>
-      <td><%= customer.email %>
-      <td><%= customer.points_balance %>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Points Balance</th>
     </tr>
-  <% end %>
-</table>
+
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= link_to customer.name, "https://#{@shop_session.url}/admin/customers/#{customer.id}", target: "_top" %></td>
+        <td><%= customer.email %>
+        <td><%= customer.points_balance %>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <div class="alert alert-warning">
+    There are no customers yet.
+  </div>
+<% end %>
