@@ -1,0 +1,7 @@
+<nav aria-label="Page navigation" class="pagination-navigation">
+  <ul class="pagination">
+    <% @pages_count.times do |page| %>
+    <li class="<%= @current_page == (page + 1) ? 'active' : ''%>"><a href="/?page=<%= page + 1 %>"><%= page + 1 %></a></li>
+    <% end %>
+  </ul>
+</nav>

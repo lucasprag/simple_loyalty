@@ -1,27 +1,36 @@
 <% content_for :javascript do %>
   <script type="text/javascript">
     ShopifyApp.ready(function(){
-      ShopifyApp.Bar.initialize({ title: "Home" });
+      ShopifyApp.Bar.initialize({ title: "Loyalty points by customer" });
     });
   </script>
 <% end %>
 
 <% if @customers.any? %>
-  <table class="table table-striped">
-    <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Points Balance</th>
-    </tr>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      You have <%= @customers_count %> customers
+    </div>
 
-    <% @customers.each do |customer| %>
+    <table class="table table-striped">
       <tr>
-        <td><%= link_to customer.name, "https://#{@shop_session.url}/admin/customers/#{customer.id}", target: "_top" %></td>
-        <td><%= customer.email %>
-        <td><%= customer.points_balance %>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Points Balance</th>
       </tr>
-    <% end %>
-  </table>
+
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= link_to customer.name, "https://#{@shop_session.url}/admin/customers/#{customer.id}", target: "_top" %></td>
+          <td><%= customer.email %>
+          <td><%= customer.points_balance %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <%= render 'pagination.html' %>
+
 <% else %>
   <div class="alert alert-warning">
     There are no customers yet.
