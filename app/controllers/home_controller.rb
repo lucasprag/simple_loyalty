@@ -2,12 +2,12 @@ class HomeController < ShopifyApp::AuthenticatedController
   LIMIT = 10
 
   def index
-    @points = shop.loyalty_points
+    # pagination
     @customers_count = ShopifyAPI::Customer.count
-
-    @pages_count = @customers_count / LIMIT
+    @pages_count = (@customers_count / LIMIT) + (@customers_count % LIMIT)
     @current_page = (params[:page] || 1).to_i
 
+    @points = shop.loyalty_points
     @customers = ShopifyAPI::Customer
       .find(:all, params: { limit: LIMIT, page: @current_page })
       .map { |customer| CustomerDecorator.new(customer, @points) }
