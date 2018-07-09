@@ -2,9 +2,11 @@ class HomeController < ShopifyApp::AuthenticatedController
   LIMIT = 10
 
   def index
-    # pagination
     @customers_count = ShopifyAPI::Customer.count
-    @pages_count = (@customers_count / LIMIT) + (@customers_count % LIMIT)
+
+    # pagination
+    rest = @customers_count > LIMIT ? (@customers_count % LIMIT) : 0
+    @pages_count = (@customers_count / LIMIT) + rest
     @current_page = (params[:page] || 1).to_i
 
     @points = shop.loyalty_points

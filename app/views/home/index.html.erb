@@ -14,16 +14,16 @@
 
     <table class="table table-striped">
       <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Points Balance</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Points Balance</th>
       </tr>
 
       <% @customers.each do |customer| %>
         <tr>
           <td><%= link_to customer.name, "https://#{@shop_session.url}/admin/customers/#{customer.id}", target: "_top" %></td>
-          <td><%= customer.email %>
-          <td><%= customer.points_balance %>
+          <td><%= customer.email %></td>
+          <td><%= customer.points_balance %></td>
         </tr>
       <% end %>
     </table>
